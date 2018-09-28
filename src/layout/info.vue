@@ -3,7 +3,7 @@ import Octicon from '../components/octicon';
 import CV from '../data/cv.pdf';
 
 export default {
-  name: 'Menu',
+  name: 'Info',
   components: { Octicon },
   computed: {
     CV() {
@@ -14,7 +14,7 @@ export default {
 </script>
 
 <template>
-  <div class="menu">
+  <div class="info">
     <h2>Daniel Esteban Nombela</h2>
     <h5>C++/GLSL/JS Full-Stack Developer</h5>
     <div class="resources">
@@ -62,7 +62,7 @@ export default {
 </template>
 
 <style lang="scss" scoped>
-  .menu {
+  .info {
     position: relative;
     background: rgb(72, 155, 43);
     padding: 1.5rem 2rem;

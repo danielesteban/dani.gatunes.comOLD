@@ -61,8 +61,7 @@ module.exports = {
             options: {
               compact: true,
               presets: [
-                ['env', { modules: false }],
-                'stage-3',
+                ['@babel/preset-env', { modules: false }],
               ],
             },
           },

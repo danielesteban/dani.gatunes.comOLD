@@ -1,18 +1,18 @@
 <script>
 import Background from '../components/background';
-import Menu from './menu';
-import Projects from '../components/projects';
+import Info from './info';
+import Projects from './projects';
 
 export default {
   name: 'Layout',
-  components: { Background, Menu, Projects },
+  components: { Background, Info, Projects },
 };
 </script>
 
 <template>
   <div>
     <Background />
-    <Menu />
+    <Info />
     <Projects />
   </div>
 </template>

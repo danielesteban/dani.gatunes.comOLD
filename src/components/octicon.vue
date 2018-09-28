@@ -30,12 +30,14 @@ export default {
 };
 </script>
 
+<!-- eslint-disable vue/no-v-html -->
 <template>
   <svg
     v-bind="options"
     v-html="path"
   />
 </template>
+<!-- eslint-enable vue/no-v-html -->
 
 <style lang="scss" scoped>
   svg {
