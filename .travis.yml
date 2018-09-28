@@ -5,9 +5,8 @@ script:
  - yarn lint
  - yarn build
 deploy:
-  skip_cleanup: true
-  provider: script
-  script:
-    - gh-pages -d dist -u "Travis CI <travis@travis-ci.org>" -r https://${GH_TOKEN}@github.com/danielesteban/dani.gatunes.com.git
   on:
     branch: master
+  provider: script
+  script: gh-pages -d dist -u "Travis CI <travis@travis-ci.org>" -r https://${GH_TOKEN}@github.com/danielesteban/dani.gatunes.com.git
+  skip_cleanup: true
