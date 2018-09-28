@@ -80,6 +80,7 @@ export default {
     }
     .wrapper {
       position: relative;
+      background: #000;
       border: 2px solid #141414;
       box-shadow: 0 3px 10px rgba(0,0,0,.156863), 0 3px 10px rgba(0,0,0,.227451);
       overflow: hidden;
