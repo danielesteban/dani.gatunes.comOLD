@@ -1,5 +1,5 @@
 <script>
-import { mat4 } from 'gl-matrix';
+import { vec2, mat4 } from 'gl-matrix';
 import { Noise } from 'noisejs';
 import requestAnimationFrame, { cancel as cancelAnimationFrame } from 'raf';
 import vertexShader from '../shaders/background.vert';
@@ -22,9 +22,12 @@ export default {
       albedo: GL.createBuffer(),
       position: GL.createBuffer(),
       indices: GL.createBuffer(),
-      noise: new Noise(Math.random()),
-      projection: mat4.create(),
       shader: GL.createProgram(),
+      noise: new Noise(Math.random()),
+      pointer: vec2.fromValues(-999, -999),
+      projection: mat4.create(),
+      halo: 180,
+      scale: 0.6,
     };
     this.state = state;
 
@@ -40,13 +43,21 @@ export default {
     GL.linkProgram(state.shader);
     GL.useProgram(state.shader);
 
-    // Start animation
-    window.addEventListener('resize', this.reset, false);
+    // Initialize quads
     this.reset();
-    this.animate();
+
+    // Start animation
+    setImmediate(this.animate);
+
+    // Capture pointer
+    window.addEventListener('mousemove', this.onPointerMove, false);
+
+    // Handle window resize
+    window.addEventListener('resize', this.reset, false);
   },
   beforeDestroy() {
-    window.removeEventListener('resize', this.reset, false);
+    window.removeEventListener('mousemove', this.onPointerMove);
+    window.removeEventListener('resize', this.reset);
     cancelAnimationFrame(this.state.animationHandler);
   },
   methods: {
@@ -55,18 +66,31 @@ export default {
         GL,
         colors,
         count,
+        halo,
         noise,
+        pointer,
         quads,
       } = this.state;
-      quads.forEach(([x, y], i) => {
-        const color = (
+      quads.forEach((quad, i) => {
+        const [x, y] = quad;
+        let color = (
           (1 + noise.simplex3(x / 100, y / 100, time * 0.0003)) * 1.1 * 128
         ) / 1000;
+        const distance = vec2.distance(quad, pointer);
+        if (distance <= halo) {
+          const light = ((halo - distance) / halo) * 0.25;
+          color += light - (light * 0.5);
+        }
         for (let v = 0; v < 4; v += 1) colors[(i * 4) + v] = color;
       });
       GL.bufferSubData(GL.ARRAY_BUFFER, 0, colors);
       GL.drawElements(GL.TRIANGLES, count, GL.UNSIGNED_SHORT, 0);
       this.state.animationHandler = requestAnimationFrame(this.animate);
+    },
+    onPointerMove({ clientX: x, clientY: y }) {
+      const { pointer, scale } = this.state;
+      pointer[0] = x * scale;
+      pointer[1] = y * scale;
     },
     reset() {
       const { $refs: { canvas }, state } = this;
@@ -76,12 +100,13 @@ export default {
         indices,
         position,
         projection,
+        scale,
         shader,
       } = state;
 
       // Resize canvas
-      canvas.width = window.innerWidth * 0.6;
-      canvas.height = window.innerHeight * 0.6;
+      canvas.width = window.innerWidth * scale;
+      canvas.height = window.innerHeight * scale;
       GL.viewport(0, 0, GL.drawingBufferWidth, GL.drawingBufferHeight);
       mat4.ortho(projection, 0, GL.drawingBufferWidth, 0, GL.drawingBufferHeight, 0, 1.0);
       GL.uniformMatrix4fv(GL.getUniformLocation(shader, 'transform'), false, projection);
@@ -89,13 +114,21 @@ export default {
       // Generate quads
       const w = QUAD_WIDTH * 0.5;
       const h = QUAD_HEIGHT * 0.5;
+      const quadVertices = [
+        [-w, -h],
+        [w, -h],
+        [w, h],
+        [-w, h],
+      ];
+      const quadIndices = [
+        0, 1, 2,
+        2, 3, 0,
+      ];
       const vertices = [];
       const index = [];
       const quads = [];
-      let offset = 0;
-      const pushIndex = i => index.push(offset + i);
       for (
-        let y = (canvas.height % QUAD_HEIGHT) * 0.5;
+        let y = (canvas.height % QUAD_HEIGHT) * 0.5, offset = 0;
         y < canvas.height + QUAD_HEIGHT * 0.5;
         y += QUAD_HEIGHT
       ) {
@@ -104,20 +137,13 @@ export default {
           x < canvas.width + QUAD_WIDTH * 0.5;
           x += QUAD_WIDTH, offset += 4
         ) {
-          [
-            [-w, -h],
-            [w, -h],
-            [w, h],
-            [-w, h],
-          ].forEach((v) => {
+          quadVertices.forEach((v) => {
             vertices.push(x + v[0]);
             vertices.push(canvas.height - y + v[1]);
           });
-          [
-            0, 1, 2,
-            2, 3, 0,
-          ].forEach(pushIndex);
-          quads.push([x, y]);
+          // eslint-disable-next-line no-loop-func
+          quadIndices.forEach(i => index.push(offset + i));
+          quads.push(vec2.fromValues(x, y));
         }
       }
 
