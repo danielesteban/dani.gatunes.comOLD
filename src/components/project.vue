@@ -124,11 +124,11 @@ export default {
         display: flex;
         > div {
           flex-grow: 1;
-          padding: 0.25rem 0.5rem;
-          background: rgba(50, 50, 50, .5);
-          color: rgba(255, 255, 255, .5);
+          padding: 0.125rem 0.25rem;
+          background: rgba(50, 50, 50, .3);
+          color: rgba(255, 255, 255, .6);
           border: 1px solid #000;
-          margin-left: .5rem;
+          margin-left: .25rem;
           text-align: center;
           text-overflow: ellipsis;
           white-space: nowrap;
