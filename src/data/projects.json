@@ -3,7 +3,7 @@
 		"title": "VRBlocks",
 		"snapshot": "vrblocks",
 		"tags": ["WebVR", "WebSockets", "WebWorkers"],
-		"info": "An online multiplayer sandbox in VR. Supports up to 32 concurrent players. The chunks are meshed in parallel through webworkers. The chunk updates and the peer's head+hands matrices get synchronized across clients with a binary protocol on top of websockets.",
+		"info": "An online multiplayer sandbox in VR. Supports up to 32 concurrent players. The chunks are meshed in parallel in webworkers. The peer's head+hands matrices and chunk updates get synchronized across clients through a custom binary protocol on top of websockets.",
 		"link": "https://vrblocks.gatunes.com/"
 	},
 	{
