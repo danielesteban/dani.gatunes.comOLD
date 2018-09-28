@@ -23,13 +23,14 @@
  * yarn install
  * yarn start
 
+#### Bundle analyzer
+
+ * yarn build:report
+
 #### Production build
 
  * yarn build
-
-#### Production bundle analyzer
-
- * yarn build:report
+ * yarn docker:up
 
 ###### Note for MS Windows users:
 
