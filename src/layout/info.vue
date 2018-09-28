@@ -62,9 +62,10 @@ export default {
 </template>
 
 <style lang="scss" scoped>
+  $background: rgb(72, 155, 43);
   .info {
     position: relative;
-    background: rgb(72, 155, 43);
+    background: linear-gradient($background, darken($background, 25%));
     padding: 1.5rem 2rem;
     box-shadow: 0 1px 6px rgba(0,0,0,.117647), 0 1px 4px rgba(0,0,0,.117647);
     z-index: 1;
@@ -93,7 +94,7 @@ export default {
       position: fixed;
       bottom: 0;
       width: 100%;
-      background: rgba(72, 155, 43, .8);
+      background: linear-gradient(rgba($background, .9), darken($background, 25%));
       text-align: center;
       .resources {
         display: flex;
