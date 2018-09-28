@@ -28,7 +28,7 @@ module.exports = {
   mode,
   entry: path.join(srcPath, 'index.js'),
   output: {
-    filename: `code/${(mode === 'production' ? '[name].[contenthash].js' : '[name].js')}`,
+    filename: `code/${(mode === 'production' ? '[name].[contenthash]' : '[name]')}.js`,
     path: buildPath,
     publicPath: basename,
   },
@@ -121,7 +121,7 @@ module.exports = {
           {
             loader: 'file-loader',
             options: {
-              name: `assets/${(mode === 'production' ? '[hash].[ext]' : '[name].[ext]')}`,
+              name: `assets/${(mode === 'production' ? '[hash]' : '[name]')}.[ext]`,
             },
           },
         ],
@@ -135,7 +135,7 @@ module.exports = {
       new UglifyJSPlugin({
         cache: true,
         parallel: true,
-        sourceMap: mode !== 'production',
+        sourceMap: true,
         uglifyOptions: {
           compress: {
             drop_console: true,
@@ -189,6 +189,14 @@ module.exports = {
           userAgent: '*',
           allow: '/',
         }],
+      }),
+      new webpack.SourceMapDevToolPlugin({
+        test: /\.js$/,
+        filename: 'code/[name].[contenthash].js.map',
+      }),
+      new webpack.SourceMapDevToolPlugin({
+        test: /\.css$/,
+        filename: 'code/[name].[contenthash].css.map',
       }),
       ...(process.env.npm_config_report ? ([
         new BundleAnalyzerPlugin(),
