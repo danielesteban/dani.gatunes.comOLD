@@ -8,21 +8,13 @@ const RobotstxtPlugin = require('robotstxt-webpack-plugin').default;
 const UglifyJSPlugin = require('uglifyjs-webpack-plugin');
 const VueLoaderPlugin = require('vue-loader/lib/plugin');
 const path = require('path');
+const meta = require('./src/data/meta');
 
 const buildPath = path.resolve(__dirname, 'dist');
 const modulesPath = path.resolve(__dirname, 'node_modules');
 const srcPath = path.resolve(__dirname, 'src');
 const mode = process.env.NODE_ENV === 'production' ? 'production' : 'development';
 const basename = process.env.BASENAME || '/';
-const cname = process.env.CNAME || 'dani.gatunes.com';
-
-const meta = {
-  title: 'Daniel Esteban Nombela',
-  creator: '@DaniGatunes',
-  description: 'C++/GLSL/JS Full-Stack Developer',
-  screenshot: './screenshot.jpg',
-  url: `https://${cname}`,
-};
 
 module.exports = {
   mode,
@@ -165,14 +157,13 @@ module.exports = {
       __PRODUCTION__: JSON.stringify(mode === 'production'),
     }),
     new HtmlWebpackPlugin({
+      config: meta,
       csp: (
         `default-src 'self'${mode === 'production' ? ' https://www.google-analytics.com/' : " ws://localhost:8080 'unsafe-eval'"};`
         + `style-src 'self'${mode === 'production' ? '' : " 'unsafe-inline'"};`
       ),
-      minify: mode === 'production' ? { collapseWhitespace: true } : false,
+      minify: { collapseWhitespace: true },
       template: path.join(srcPath, 'index.ejs'),
-      title: meta.title,
-      meta,
     }),
     new VueLoaderPlugin(),
     ...(mode === 'production' ? [
@@ -181,7 +172,7 @@ module.exports = {
         filename: 'code/[name].[contenthash].css',
       }),
       new CnameWebpackPlugin({
-        domain: cname,
+        domain: meta.domain,
       }),
       new RobotstxtPlugin({
         policy: [{

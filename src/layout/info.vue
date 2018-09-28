@@ -1,6 +1,7 @@
 <script>
-import Octicon from '../components/octicon';
 import CV from '../data/cv.pdf';
+import Meta from '../data/meta';
+import Octicon from '../components/octicon';
 
 export default {
   name: 'Info',
@@ -9,18 +10,21 @@ export default {
     CV() {
       return CV;
     },
+    Meta() {
+      return Meta;
+    },
   },
 };
 </script>
 
 <template>
   <div class="info">
-    <h2>Daniel Esteban Nombela</h2>
-    <h5>C++/GLSL/JS Full-Stack Developer</h5>
+    <h2>{{ Meta.name }}</h2>
+    <h5>{{ Meta.description }}</h5>
     <div class="resources">
       <a
         :href="CV"
-        download="Daniel Esteban Nombela - CV.pdf"
+        :download="`${Meta.name} - CV.pdf`"
       >
         <Octicon
           :scale="1.5"
@@ -29,7 +33,7 @@ export default {
         <span>CV</span>
       </a>
       <a
-        href="https://github.com/danielesteban"
+        :href="`https://github.com/${Meta.github}`"
         rel="noopener noreferrer"
         target="_blank"
       >
@@ -40,7 +44,7 @@ export default {
         <span>Github</span>
       </a>
       <a
-        href="https://twitter.com/DaniGatunes"
+        :href="`https://twitter.com/${Meta.twitter}`"
         rel="noopener noreferrer"
         target="_blank"
       >
@@ -48,14 +52,14 @@ export default {
           :scale="1.5"
           name="comment-discussion"
         />
-        <span>@DaniGatunes</span>
+        <span>@{{ Meta.twitter }}</span>
       </a>
-      <a href="mailto:dani@gatunes.com">
+      <a :href="`mailto:${Meta.email}`">
         <Octicon
           :scale="1.5"
           name="mail"
         />
-        <span>dani@gatunes.com</span>
+        <span>{{ Meta.email }}</span>
       </a>
     </div>
   </div>

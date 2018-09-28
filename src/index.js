@@ -1,4 +1,5 @@
 import Vue from 'vue';
+import Meta from './data/meta';
 import Layout from './layout';
 
 Vue.config.performance = !__PRODUCTION__;
@@ -18,7 +19,7 @@ if (__PRODUCTION__) {
     window.ga.q.push(args);
   };
   window.ga.l = (new Date()) * 1;
-  window.ga('create', 'UA-113342424-1', 'auto');
+  window.ga('create', Meta.analytics, 'auto');
   window.ga('send', 'pageview');
   const script = document.createElement('script');
   script.async = true;

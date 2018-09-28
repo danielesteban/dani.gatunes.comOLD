@@ -3,7 +3,7 @@
 
 > My personal website/portfolio.
 
-[![screenshot](screenshot.jpg)](https://dani.gatunes.com/)
+[![screenshot](src/data/screenshot.jpg)](https://dani.gatunes.com/)
 
 <div align="center">
   <!-- Dependency Status -->
