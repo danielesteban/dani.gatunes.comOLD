@@ -148,7 +148,7 @@ module.exports = {
     },
   },
   performance: { hints: false },
-  stats: { entrypoints: false, modules: false },
+  stats: { children: false, entrypoints: false, modules: false },
   plugins: [
     new webpack.DefinePlugin({
       'process.env': {
