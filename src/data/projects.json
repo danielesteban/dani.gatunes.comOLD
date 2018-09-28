@@ -14,8 +14,8 @@
     "url": "danigatunes.itch.io/racer"
   },
   {
+    "id": "vrbeats",
     "title": "VRBeats",
-    "snapshot": "vrbeats",
     "tags": ["WebVR", "ThreeJS", "WebAudio"],
     "info": "A live performance sandbox in VR. It features three sequencers (2 synths, 1 sampler) with multiple pages and a channel mixer.",
     "url": "vrbeats.gatunes.com"
@@ -28,8 +28,8 @@
     "url": "play.google.com/store/apps/details?id=com.gatunes.glcannon"
   },
   {
+    "id": "retrospective",
     "title": "Retrospective",
-    "snapshot": "retrospective",
     "tags": ["C++", "SDL", "OpenGL", "GLSL"],
     "info": "A retro-style platformer for windows with a 3D perspective. Features procedural backgrounds, destructible environment, a level editor and gamepad support.",
     "url": "danigatunes.itch.io/retrospective"
