@@ -1,6 +1,7 @@
 const webpack = require('webpack');
 const autoprefixer = require('autoprefixer');
 const { BundleAnalyzerPlugin } = require('webpack-bundle-analyzer');
+const CnameWebpackPlugin = require('cname-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const RobotstxtPlugin = require('robotstxt-webpack-plugin').default;
@@ -166,8 +167,7 @@ module.exports = {
       title: 'D.E.N. | C++/GLSL/JS Full-Stack Developer',
     }),
     new VueLoaderPlugin(),
-  ].concat(
-    mode === 'production' ? ([
+    ...(mode === 'production' ? [
       new webpack.HashedModuleIdsPlugin(),
       new MiniCssExtractPlugin({
         filename: 'code/[name].[contenthash].css',
@@ -178,14 +178,16 @@ module.exports = {
           allow: '/',
         }],
       }),
-    ]) : ([
+      new CnameWebpackPlugin({
+        domain: 'dani.gatunes.com',
+      }),
+      ...(process.env.npm_config_report ? ([
+        new BundleAnalyzerPlugin(),
+      ]) : []),
+    ] : [
       new webpack.NamedModulesPlugin(),
       new webpack.HotModuleReplacementPlugin(),
       new webpack.EvalSourceMapDevToolPlugin(),
-    ])
-  ).concat(
-    process.env.npm_config_report ? ([
-      new BundleAnalyzerPlugin(),
-    ]) : []
-  ),
+    ]),
+  ],
 };

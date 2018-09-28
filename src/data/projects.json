@@ -20,13 +20,6 @@
 		"info": "A live performance sandbox in VR. It features three sequencers (2 synths, 1 sampler) with multiple pages and a channel mixer.",
 		"link": "https://vrbeats.gatunes.com/"
 	},
-	{
-		"title": "Retrospective",
-		"snapshot": "retrospective",
-		"tags": ["C++", "SDL", "OpenGL", "GLSL"],
-		"info": "A retro-style platformer for windows with a 3D perspective. Features procedural backgrounds, destructible environment, a level editor and gamepad support.",
-		"link": "https://danigatunes.itch.io/retrospective"
-	},
   {
     "title": "GLCannon",
     "snapshot": "glcannon",
@@ -34,6 +27,13 @@
     "info": "An opensorce C++ OpenGL ES 2.0 engine for Android. Built on top of SDL and the Bullet physics engine, it renders textured meshes with real-time lightning and rigid body simulations at 60FPS in a low-end phone.",
     "link": "https://play.google.com/store/apps/details?id=com.gatunes.glcannon"
   },
+	{
+		"title": "Retrospective",
+		"snapshot": "retrospective",
+		"tags": ["C++", "SDL", "OpenGL", "GLSL"],
+		"info": "A retro-style platformer for windows with a 3D perspective. Features procedural backgrounds, destructible environment, a level editor and gamepad support.",
+		"link": "https://danigatunes.itch.io/retrospective"
+	},
 	{
 		"title": "Island",
 		"snapshot": "island",

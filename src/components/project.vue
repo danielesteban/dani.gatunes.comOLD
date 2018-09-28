@@ -78,7 +78,7 @@ export default {
       box-shadow: 0 3px 10px rgba(0,0,0,.156863), 0 3px 10px rgba(0,0,0,.227451);
       overflow: hidden;
       > img {
-        align-self: center;
+        height: 100%;
       }
       .info {
         display: flex;
