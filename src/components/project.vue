@@ -5,6 +5,10 @@ export default {
   name: 'Project',
   components: { Octicon },
   props: {
+    id: {
+      type: String,
+      required: true,
+    },
     title: {
       type: String,
       required: true,
@@ -13,16 +17,12 @@ export default {
       type: String,
       required: true,
     },
-    link: {
-      type: String,
-      required: true,
-    },
-    snapshot: {
-      type: String,
-      required: true,
-    },
     tags: {
       type: Array,
+      required: true,
+    },
+    url: {
+      type: String,
       required: true,
     },
   },
@@ -33,7 +33,7 @@ export default {
   <div class="project">
     <div class="wrapper">
       <img
-        :src="require(`../data/snapshots/${snapshot}.png`)"
+        :src="require(`../data/snapshots/${id}.png`)"
       >
       <div class="flipper">
         <div class="info">
@@ -48,14 +48,14 @@ export default {
           </div>
           <p>{{ info }}</p>
           <div class="url">
-            <span>{{ link }}</span>
+            <span>https://{{ url }}</span>
             <Octicon
               :scale="2"
               name="link-external"
             />
           </div>
           <a
-            :href="link"
+            :href="`https://${url}`"
             rel="noopener noreferrer"
             target="_blank"
           />

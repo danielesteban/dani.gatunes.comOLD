@@ -1,100 +1,100 @@
 [
   {
+    "id": "vrblocks",
     "title": "VRBlocks",
-    "snapshot": "vrblocks",
     "tags": ["WebVR", "WebSockets", "WebWorkers"],
     "info": "An online multiplayer sandbox in VR. Supports up to 32 concurrent players. The chunks are meshed in parallel in webworkers. The peer's head+hands matrices and chunk updates get synchronized across clients through a custom binary protocol on top of websockets.",
-    "link": "https://vrblocks.gatunes.com/"
+    "url": "vrblocks.gatunes.com"
   },
   {
+    "id": "racer",
     "title": "Racer",
-    "snapshot": "racer",
     "tags": ["WebGL", "GLSL", "ThreeJS", "WebRTC"],
     "info": "A peer-to-peer racing web game. It features a procedurally generated track with particle effects and syncronizes it's clients through a WebRTC data channel.",
-    "link": "https://danigatunes.itch.io/racer"
+    "url": "danigatunes.itch.io/racer"
   },
   {
     "title": "VRBeats",
     "snapshot": "vrbeats",
     "tags": ["WebVR", "ThreeJS", "WebAudio"],
     "info": "A live performance sandbox in VR. It features three sequencers (2 synths, 1 sampler) with multiple pages and a channel mixer.",
-    "link": "https://vrbeats.gatunes.com/"
+    "url": "vrbeats.gatunes.com"
   },
   {
+    "id": "glcannon",
     "title": "GLCannon",
-    "snapshot": "glcannon",
     "tags": ["C++", "Android", "OpenGL ES", "GLSL"],
     "info": "An opensorce C++ OpenGL ES 2.0 engine for Android. Built on top of SDL and the Bullet physics engine, it renders textured meshes with real-time lightning and rigid body simulations at 60FPS in a low-end phone.",
-    "link": "https://play.google.com/store/apps/details?id=com.gatunes.glcannon"
+    "url": "play.google.com/store/apps/details?id=com.gatunes.glcannon"
   },
   {
     "title": "Retrospective",
     "snapshot": "retrospective",
     "tags": ["C++", "SDL", "OpenGL", "GLSL"],
     "info": "A retro-style platformer for windows with a 3D perspective. Features procedural backgrounds, destructible environment, a level editor and gamepad support.",
-    "link": "https://danigatunes.itch.io/retrospective"
+    "url": "danigatunes.itch.io/retrospective"
   },
   {
+    "id": "island",
     "title": "Island",
-    "snapshot": "island",
     "tags": ["WebGL", "WebSockets", "Post-processing"],
     "info": "Mutiplayer island with a sobel edge detection post-processing shader and persistent server-side synchronized physics bodies. No tweening, just pure brute update frequency.",
-    "link": "https://projects.gatunes.com/island/"
+    "url": "projects.gatunes.com/island"
   },
   {
+    "id": "hypervoxels",
     "title": "HyperVoxels",
-    "snapshot": "hypervoxels",
     "tags": ["ES6", "WebGL", "GLSL", "Express", "MongoDB"],
     "info": "This site may require some interpretation from the viewer. It's purpose at inception is to serve as a procedural art gallery for visual coders/artists. The medium: 3D slices of 4D hypercubes. The constraints: 24bit colored voxels.",
-    "link": "https://hypervoxels.gatunes.com/"
+    "url": "hypervoxels.gatunes.com"
   },
   {
     "title": "Corre, Forrest, ¡Corre!",
     "snapshot": "cfc",
     "tags": ["WebGL", "ThreeJS"],
     "info": "An 80's cyber-punk vibe platformer with a mobile control scheme (just 1 button). The engine generates its levels from a regular string and it plays music using the SoundCloud API.",
-    "link": "https://projects.gatunes.com/cfc/"
+    "url": "projects.gatunes.com/cfc"
   },
   {
+    "id": "voxels",
     "title": "Voxels.es",
-    "snapshot": "voxels",
     "tags": ["WebGL", "WebSockets", "Express", "MongoDB"],
     "info": "Multiplayer voxel editor À-la-Minecraft. With a custom engine built from the ground up, the client achieves 60FPS with great rendering distances. The backend syncronizes up the client states via websockets and persists the chunk updates to a MongoDB instance.",
-    "link": "https://voxels.es/"
+    "url": "voxels.es"
   },
   {
+    "id": "isometric",
     "title": "IsoMetric",
-    "snapshot": "isometric",
     "tags": ["WebGL", "PixiJS", "AngularJS"],
     "info": "A cross-over between SimCity and Minecraft. Built with PixiJS it's fully cross-platform (through Cordova) and features a retro style 2.5D isometric terrain editor with animated textures and road traffic AI.",
-    "link": "https://projects.gatunes.com/isometric/"
+    "url": "projects.gatunes.com/isometric"
   },
   {
+    "id": "videochat",
     "title": "VideoChat",
-    "snapshot": "videochat",
     "tags": ["ES6", "WebGL", "WebRTC", "WebAudio"],
     "info": "A WebRTC videochat in a 3D environment. It features multi-party rooms and positional 3D audio for each stream through the WebAudio API.",
-    "link": "https://projects.gatunes.com/videochat/"
+    "url": "projects.gatunes.com/videochat"
   },
   {
+    "id": "sandbox",
     "title": "Physics sandbox",
-    "snapshot": "sandbox",
     "tags": ["ES6", "WebGL", "GLSL", "Ammo.js"],
     "info": "A sandbox level that demonstrates the physics capabilities of my custom webgl engine, like: Constraints, collision callbacks, entity grabbing/dropping, buttons, elevators... All of course at 60FPS.",
-    "link": "https://projects.gatunes.com/sandbox/"
+    "url": "projects.gatunes.com/sandbox"
   },
   {
+    "id": "procedural",
     "title": "Procedural terrain",
-    "snapshot": "procedural",
     "tags": ["ES6", "WebGL", "GLSL", "Post-processing"],
     "info": "Procedurally generated heightmap with fauna & vegetation. The fauna is driven by a 3D waypoint navigation AI. A procedural skybox coupled with dynamic diffuse & specular lightning animates through a day/night cycle. It also features 2 post-processing effects: Depth of field & night vision binoculars.",
-    "link": "https://projects.gatunes.com/procedural/"
+    "url": "projects.gatunes.com/procedural"
   },
   {
+    "id": "visualizer",
     "title": "Music visualizer",
-    "snapshot": "visualizer",
     "tags": ["ES6", "WebGL", "GLSL", "WebAudio"],
     "info": "High-octane real-time terrain generation driven by an audio analyser's time domain. It also features a depth of field post-processing effect and a starry skybox animated by the analyser's frequency domain.",
-    "link": "https://projects.gatunes.com/visualizer/"
+    "url": "projects.gatunes.com/visualizer"
   }
 ]
