@@ -5,6 +5,7 @@ script:
  - yarn lint
  - yarn build
 deploy:
+  skip_cleanup: true
   provider: script
   script: yarn deploy
   on:
