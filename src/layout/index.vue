@@ -1,5 +1,5 @@
 <script>
-import Background from '../components/background';
+import Background from './background';
 import Info from './info';
 import Projects from './projects';
 
