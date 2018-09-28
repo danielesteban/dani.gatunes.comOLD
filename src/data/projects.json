@@ -49,8 +49,8 @@
     "url": "hypervoxels.gatunes.com"
   },
   {
+    "id": "cfc",
     "title": "Corre, Forrest, ¡Corre!",
-    "snapshot": "cfc",
     "tags": ["WebGL", "ThreeJS"],
     "info": "An 80's cyber-punk vibe platformer with a mobile control scheme (just 1 button). The engine generates its levels from a regular string and it plays music using the SoundCloud API.",
     "url": "projects.gatunes.com/cfc"
