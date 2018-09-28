@@ -33,7 +33,7 @@ export default {
   <div class="project">
     <div class="wrapper">
       <img
-        :src="require(`../snapshots/${snapshot}.png`)"
+        :src="require(`../data/snapshots/${snapshot}.png`)"
       >
       <div class="flipper">
         <div class="info">

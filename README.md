@@ -18,10 +18,20 @@
 
 ---
 
+#### Fully data-driven
+ * Edit metadata in: [src/data/meta.json](src/data/meta.json)
+ * Edit projects in: [src/data/projects.json](src/data/projects.json)
+ * Copy project snapshots into: [src/data/snapshots/](src/data/snapshots/)
+ * Copy CV into: [src/data/cv.pdf](src/data/cv.pdf)
+
 #### Dev environment
 
  * yarn install
  * yarn start
+
+#### Deploy to github pages
+
+ * yarn deploy
 
 #### Bundle analyzer
 
