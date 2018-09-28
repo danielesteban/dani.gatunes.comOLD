@@ -74,6 +74,10 @@ export default {
       display: flex;
       justify-content: center;
     }
+    .wrapper, .flipper, .info {
+      width: 100%;
+      height: 100%;
+    }
     .wrapper {
       position: relative;
       background: #000;
@@ -82,10 +86,6 @@ export default {
       > img {
         height: 100%;
       }
-    }
-    .flipper, .info {
-      width: 100%;
-      height: 100%;
     }
     .flipper {
       position: absolute;
@@ -100,7 +100,7 @@ export default {
       justify-content: stretch;
       background: rgba(0, 0, 0, .5);
       color: #fff;
-      padding: 1rem;
+      padding: 1.5rem;
       transform: rotateX(-180deg);
       transform-origin: 0% 0%;
       transform-style: preserve-3d;
