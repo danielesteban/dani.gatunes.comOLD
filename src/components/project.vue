@@ -77,6 +77,7 @@ export default {
       background: #000;
       box-shadow: 0 3px 10px rgba(0,0,0,.156863), 0 3px 10px rgba(0,0,0,.227451);
       overflow: hidden;
+      perspective: 1000px;
       > img {
         height: 100%;
       }
@@ -85,14 +86,18 @@ export default {
         flex-direction: column;
         justify-content: stretch;
         position: absolute;
-        top: -100%;
+        top: 0;
         left: 0;
         width: 100%;
         height: 100%;
-        background: rgba(0,0,0,.5);
+        background: rgba(0, 0, 0, .5);
         color: #fff;
         padding: 1rem;
-        transition: top .15s ease-out;
+        transform: rotateX(-180deg);
+        transform-origin: 0% 0%;
+        transform-style: preserve-3d;
+        transition: transform .3s ease-out;
+        will-change: transform;
         > a {
           display: block;
           position: absolute;
@@ -138,7 +143,7 @@ export default {
         }
       }
       &:hover .info {
-        top: 0;
+        transform: rotateY(0deg);
       }
     }
     @media only screen and (min-width: 1024px) {
