@@ -52,7 +52,7 @@ As a testament to that sentiment, I wanted to refactor my personal site into Vue
  * Set the env GH_TOKEN in the travis-ci settings to a github personal access token.
  * It will build and deploy the bundle to github pages every time you push to master.
 
-#### What if want to deploy it on my own server?
+#### What if I want to deploy it on my own server?
 
  * yarn build
  * yarn docker:up
