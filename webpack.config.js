@@ -110,9 +110,8 @@ module.exports = {
         test: /\.(gif|jpg|png|svg|ttf|woff|mp3|ogg|pdf)$/,
         use: [
           {
-            loader: 'url-loader',
+            loader: 'file-loader',
             options: {
-              limit: 10000,
               name: `assets/${(mode === 'production' ? '[hash].[ext]' : '[name].[ext]')}`,
             },
           },
@@ -159,7 +158,7 @@ module.exports = {
     }),
     new HtmlWebpackPlugin({
       csp: (
-        `default-src 'self' data: blob:${mode === 'production' ? ' https://www.google-analytics.com/' : " ws://localhost:8080 'unsafe-eval'"};`
+        `default-src 'self'${mode === 'production' ? ' https://www.google-analytics.com/' : " ws://localhost:8080 'unsafe-eval'"};`
         + `style-src 'self'${mode === 'production' ? '' : " 'unsafe-inline'"};`
       ),
       minify: mode === 'production' ? { collapseWhitespace: true } : false,
@@ -172,14 +171,14 @@ module.exports = {
       new MiniCssExtractPlugin({
         filename: 'code/[name].[contenthash].css',
       }),
+      new CnameWebpackPlugin({
+        domain: 'dani.gatunes.com',
+      }),
       new RobotstxtPlugin({
         policy: [{
           userAgent: '*',
           allow: '/',
         }],
-      }),
-      new CnameWebpackPlugin({
-        domain: 'dani.gatunes.com',
       }),
       ...(process.env.npm_config_report ? ([
         new BundleAnalyzerPlugin(),
