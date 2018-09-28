@@ -69,9 +69,10 @@ export default {
   $background: rgb(72, 155, 43);
   .info {
     position: relative;
-    background: linear-gradient($background, darken($background, 20%));
     padding: 1.5rem 2rem;
+    background: linear-gradient($background, darken($background, 20%));
     box-shadow: 0 1px 6px rgba(0,0,0,.117647), 0 1px 4px rgba(0,0,0,.117647);
+    border-bottom: 1px solid darken($background, 15%);
     z-index: 1;
     > h2 {
       margin: 0;
@@ -99,6 +100,8 @@ export default {
       bottom: 0;
       width: 100%;
       background: linear-gradient(rgba($background, .9), darken($background, 20%));
+      border-top: 1px solid darken($background, 15%);
+      border-bottom: 0;
       text-align: center;
       .resources {
         display: flex;

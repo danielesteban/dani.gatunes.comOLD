@@ -80,7 +80,7 @@ export default {
     }
     .wrapper {
       position: relative;
-      background: #000;
+      border: 2px solid #141414;
       box-shadow: 0 3px 10px rgba(0,0,0,.156863), 0 3px 10px rgba(0,0,0,.227451);
       overflow: hidden;
       > img {
@@ -98,7 +98,7 @@ export default {
       display: flex;
       flex-direction: column;
       justify-content: stretch;
-      background: rgba(0, 0, 0, .5);
+      background: rgba(0, 0, 0, .75);
       color: #fff;
       padding: 1.5rem;
       transform: rotateX(-180deg);
@@ -124,9 +124,10 @@ export default {
         > div {
           flex-grow: 1;
           padding: 0.25rem 0.5rem;
-          background: rgba(127, 127, 127, .25);
-          color: rgba(255, 255, 255, .75);
-          margin-left: .25rem;
+          background: rgba(50, 50, 50, .5);
+          color: rgba(255, 255, 255, .5);
+          border: 1px solid #000;
+          margin-left: .5rem;
           text-align: center;
           text-overflow: ellipsis;
           white-space: nowrap;
