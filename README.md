@@ -6,6 +6,10 @@
 [![screenshot](src/data/screenshot.jpg)](https://dani.gatunes.com/)
 
 <div align="center">
+  <!-- Build Status -->
+  <a href="https://travis-ci.com/danielesteban/dani.gatunes.com">
+    <img src="https://travis-ci.com/danielesteban/dani.gatunes.com.svg?branch=master" alt="Build Status" />
+  </a>
   <!-- Dependency Status -->
   <a href="https://david-dm.org/danielesteban/dani.gatunes.com">
     <img src="https://david-dm.org/danielesteban/dani.gatunes.com/status.svg" alt="Dependency Status" />
