@@ -4,6 +4,18 @@
     <meta charset="utf-8">
     <meta http-equiv="x-ua-compatible" content="ie=edge,chrome=1">
     <meta http-equiv="Content-Security-Policy" content="<%= htmlWebpackPlugin.options.csp %>">
+    <meta property="og:url" content="<%= htmlWebpackPlugin.options.meta.url %>/" />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="<%= htmlWebpackPlugin.options.meta.title %>" />
+    <meta property="og:image" content="<%= htmlWebpackPlugin.options.meta.url %><%= require.context("../", true,  /^\.\/.*\.jpg$/)(htmlWebpackPlugin.options.meta.screenshot) %>" />
+    <meta property="og:description" content="<%= htmlWebpackPlugin.options.meta.description %>" />
+    <meta property="og:site_name" content="<%= htmlWebpackPlugin.options.meta.title %>" />
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:creator" content="<%= htmlWebpackPlugin.options.meta.creator %>" />
+    <meta name="twitter:url" content="<%= htmlWebpackPlugin.options.meta.url %>/" />
+    <meta name="twitter:title" content="<%= htmlWebpackPlugin.options.meta.title %>" />
+    <meta name="twitter:description" content="<%= htmlWebpackPlugin.options.meta.description %>" />
+    <meta name="twitter:image" content="<%= htmlWebpackPlugin.options.meta.url %><%= require.context("../", true,  /^\.\/.*\.jpg$/)(htmlWebpackPlugin.options.meta.screenshot) %>" />
     <meta name="format-detection" content="telephone=no">
     <meta name="msapplication-tap-highlight" content="no">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no">

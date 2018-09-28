@@ -14,6 +14,15 @@ const modulesPath = path.resolve(__dirname, 'node_modules');
 const srcPath = path.resolve(__dirname, 'src');
 const mode = process.env.NODE_ENV === 'production' ? 'production' : 'development';
 const basename = process.env.BASENAME || '/';
+const cname = process.env.CNAME || 'dani.gatunes.com';
+
+const meta = {
+  title: 'Daniel Esteban Nombela',
+  creator: '@DaniGatunes',
+  description: 'C++/GLSL/JS Full-Stack Developer',
+  screenshot: './screenshot.jpg',
+  url: `https://${cname}`,
+};
 
 module.exports = {
   mode,
@@ -163,7 +172,8 @@ module.exports = {
       ),
       minify: mode === 'production' ? { collapseWhitespace: true } : false,
       template: path.join(srcPath, 'index.ejs'),
-      title: 'D.E.N. | C++/GLSL/JS Full-Stack Developer',
+      title: meta.title,
+      meta,
     }),
     new VueLoaderPlugin(),
     ...(mode === 'production' ? [
@@ -172,7 +182,7 @@ module.exports = {
         filename: 'code/[name].[contenthash].css',
       }),
       new CnameWebpackPlugin({
-        domain: 'dani.gatunes.com',
+        domain: cname,
       }),
       new RobotstxtPlugin({
         policy: [{
