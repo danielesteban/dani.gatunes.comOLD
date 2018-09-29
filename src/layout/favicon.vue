@@ -24,6 +24,7 @@ export default {
         if (i % 4 === 3) {
           pixels.data[i] = 0xFF;
         } else {
+          pixels.data[i] = 100 + Math.floor(Math.random() * 129);
           grid.push(i);
         }
       }
@@ -62,14 +63,20 @@ export default {
       } = state;
 
       grid.forEach((i) => {
-        pixels.data[i] = 90 + Math.floor(Math.random() * 166);
+        pixels.data[i] = Math.min(
+          Math.max(
+            pixels.data[i] + Math.floor(Math.random() * 65) - 32,
+            100
+          ),
+          228
+        );
       });
       ctx.putImageData(pixels, 0, 0);
       tag.href = canvas.toDataURL('image/png');
 
-      // Since this doesn't require precise timings, I call setTimeout instead of
-      // requestAnimationFrame so it keeps animating when the window loses focus.
-      state.animationHandler = setTimeout(this.animate, 20);
+      // Since this can't keep up with v-sync and we don't care about precise timings,
+      // I just call setTimeout instead of requestAnimationFrame.
+      state.animationHandler = setTimeout(this.animate, 100);
     },
   },
 };
