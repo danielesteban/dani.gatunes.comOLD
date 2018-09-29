@@ -1,7 +1,7 @@
 <script>
 import CV from '../data/cv.pdf';
 import Meta from '../data/meta';
-import Octicon from '../components/octicon';
+import Octicon from './octicon';
 
 export default {
   name: 'Info',

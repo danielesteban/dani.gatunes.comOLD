@@ -1,6 +1,6 @@
 <script>
-import Project from '../components/project';
 import Projects from '../data/projects';
+import Project from './project';
 
 export default {
   name: 'Projects',
