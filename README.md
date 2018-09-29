@@ -50,7 +50,7 @@ As a testament to that sentiment, I wanted to refactor my personal site into Vue
  * If you didn't already, Install travis-cli: `gem install travis`
  * Generate a new github personal access token: [Here](https://github.com/settings/tokens)
  * Run `travis encrypt GITHUB_TOKEN=your_gh_access_token` in the project root.
- * Replace the secure env in [.travis.yml](.travis.yml) with the output key from travis-cli.
+ * Replace the secure env in [.travis.yml](.travis.yml) with the output from travis-cli.
  * Log into [https://travis-ci.org](https://travis-ci.org) and enable your repo.
  * It will build and deploy the bundle to github pages every time you push to master.
 
