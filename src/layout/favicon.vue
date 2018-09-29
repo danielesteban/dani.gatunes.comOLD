@@ -8,24 +8,26 @@ export default {
     canvas.width = 8;
     canvas.height = 8;
     const ctx = canvas.getContext('2d');
-    ctx.textAlign = 'center';
-    ctx.textBaseline = 'middle';
+    ctx.imageSmoothingEnabled = false;
     const pixels = ctx.getImageData(0, 0, canvas.width, canvas.height);
     const grid = [];
     pixels.data.forEach((v, i) => {
-      const p = i / 4;
-      const y = Math.floor(p / canvas.width);
-      const x = Math.floor(p % canvas.width);
+      const pixel = i / 4;
+      const x = Math.floor(pixel % canvas.width);
+      const y = Math.floor(pixel / canvas.width);
       if (
         Math.sqrt(
-          ((y - (canvas.height * 0.5) + 0.5) ** 2) + ((x - (canvas.width * 0.5) + 0.5) ** 2)
+          ((y - (canvas.height * 0.5) + 0.5) ** 2)
+          + ((x - (canvas.width * 0.5) + 0.5) ** 2)
         ) < canvas.width * 0.5
       ) {
-        if (i % 4 === 3) pixels.data[i] = 0xFF;
-        else grid.push(i);
+        if (i % 4 === 3) {
+          pixels.data[i] = 0xFF;
+        } else {
+          grid.push(i);
+        }
       }
     });
-    ctx.putImageData(pixels, 0, 0);
     const tag = document.createElement('link');
     tag.rel = 'icon';
     tag.type = 'image/png';
@@ -36,6 +38,7 @@ export default {
       canvas,
       ctx,
       grid: new Uint16Array(grid),
+      pixels,
       tag,
     };
 
@@ -54,10 +57,10 @@ export default {
         canvas,
         ctx,
         grid,
+        pixels,
         tag,
       } = state;
 
-      const pixels = ctx.getImageData(0, 0, canvas.width, canvas.height);
       grid.forEach((i) => {
         pixels.data[i] = 90 + Math.floor(Math.random() * 166);
       });
@@ -66,7 +69,7 @@ export default {
 
       // Since this doesn't require precise timings, I call setTimeout instead of
       // requestAnimationFrame so it keeps animating when the window loses focus.
-      state.animationHandler = setTimeout(this.animate, 10);
+      state.animationHandler = setTimeout(this.animate, 20);
     },
   },
 };
