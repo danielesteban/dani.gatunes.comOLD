@@ -1,6 +1,9 @@
 language: node_js
 node_js: lts/*
-cache: yarn
+cache:
+  yarn: true
+  directories:
+  - node_modules
 env:
   global:
   - secure: KkwwC/eHkCoLzzv5edhjsqVI04wYrt+m+qCUBB3bobJUHfrnlYy2MRihcjT5ZmUGLteo8ZPZWzgN6HJ+vjFQRCEswBdz5LqChaka/AY4bmv2/QSBjIm4+0VSBPYlU15XyqJGR79sDGsVwfCRsrJQsPx57bs8vXuuMY/lNVQ4ZLBfstbsfrFxiYhK3aC2Ly8yooQmib+sqc8dGXVF5pyg1noWDFLSVVTgoy+aksWxmUu5rbWRVUPA42Um/9ePOUoFfZ8JhVwyVOMs+lIdbOibNbVXrgFHdSHTI9Xq8DUe0KyNsB47NyfT8zT9TSnWztVO1IMrD5LkZUUlhVbjG4/UtblOfyaV4iYYY+adk7dS+cQ7qK945YKHt7AV31WY7aCr9bICSHpq7rZDUwAfWMr0X++MA+WpkBKnN9KAkC9d6iZLbeqHiBRK7loyEBS8ld3NHfGBuT1ctbCGf4G4TjBfT7xoTjMZktjeCP56E5c5zT4gIEXGr17Ihx3Mup+1UttjrPn1VoOWDqPEuwMVFoG5deARlqEYR4eNfqmTR/1UJqEltbuAy329mNef2cvn7W+sorgiNlO60yFVtib/4FaTRmvqh6a1T4GoUU9e7gxAYX7tdFdnMwIUWmeSH2QlPeAdR7Z/q6WdtDO9il93xGzaC3w+lGglgWbLH6EqS7t7xSs=
