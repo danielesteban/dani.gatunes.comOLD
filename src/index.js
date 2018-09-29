@@ -12,7 +12,7 @@ const app = new Vue({
   render: h => h('Layout'),
 });
 
-if (__PRODUCTION__) {
+if (__PRODUCTION__ && Meta.analytics) {
   window.GoogleAnalyticsObject = 'ga';
   window.ga = (...args) => {
     if (!window.ga.q) window.ga.q = [];

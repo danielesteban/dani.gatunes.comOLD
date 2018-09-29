@@ -160,9 +160,11 @@ module.exports = {
     new HtmlWebpackPlugin({
       config: meta,
       csp: (
-        `default-src 'self'${mode === 'production' ? ' https://www.google-analytics.com/' : " ws://localhost:8080 'unsafe-eval'"};`
+        "default-src 'self'"
+        + `${mode === 'production' && meta.analytics ? ' https://www.google-analytics.com/' : ''}`
+        + `${mode === 'development' ? " ws://localhost:8080 'unsafe-eval'" : ''};`
         + "img-src 'self' data:;"
-        + `style-src 'self'${mode === 'production' ? '' : " 'unsafe-inline'"};`
+        + `style-src 'self'${mode === 'development' ? " 'unsafe-inline'" : ''};`
       ),
       minify: { collapseWhitespace: true },
       template: path.join(srcPath, 'index.ejs'),

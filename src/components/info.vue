@@ -33,6 +33,7 @@ export default {
         <span>CV</span>
       </a>
       <a
+        v-if="Meta.github"
         :href="`https://github.com/${Meta.github}`"
         rel="noopener noreferrer"
         target="_blank"
@@ -44,6 +45,7 @@ export default {
         <span>Github</span>
       </a>
       <a
+        v-if="Meta.twitter"
         :href="`https://twitter.com/${Meta.twitter}`"
         rel="noopener noreferrer"
         target="_blank"
@@ -54,7 +56,10 @@ export default {
         />
         <span>@{{ Meta.twitter }}</span>
       </a>
-      <a :href="`mailto:${Meta.email}`">
+      <a
+        v-if="Meta.email"
+        :href="`mailto:${Meta.email}`"
+      >
         <Octicon
           :scale="1.5"
           name="mail"

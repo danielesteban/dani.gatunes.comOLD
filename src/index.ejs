@@ -4,18 +4,20 @@
     <meta charset="utf-8">
     <meta http-equiv="x-ua-compatible" content="ie=edge,chrome=1">
     <meta http-equiv="Content-Security-Policy" content="<%= htmlWebpackPlugin.options.csp %>">
-    <meta property="og:url" content="https://<%= htmlWebpackPlugin.options.config.domain %>/" />
-    <meta property="og:type" content="website" />
-    <meta property="og:title" content="<%= htmlWebpackPlugin.options.config.name %>" />
-    <meta property="og:image" content="https://<%= htmlWebpackPlugin.options.config.domain %><%= require.context("./data/", true, /^\.\/.*\.jpg$/)('./screenshot.jpg') %>" />
-    <meta property="og:description" content="<%= htmlWebpackPlugin.options.config.description %>" />
-    <meta property="og:site_name" content="<%= htmlWebpackPlugin.options.config.name %>" />
-    <meta name="twitter:card" content="summary" />
-    <meta name="twitter:creator" content="@<%= htmlWebpackPlugin.options.config.twitter %>" />
-    <meta name="twitter:url" content="https://<%= htmlWebpackPlugin.options.config.domain %>/" />
-    <meta name="twitter:title" content="<%= htmlWebpackPlugin.options.config.name %>" />
-    <meta name="twitter:description" content="<%= htmlWebpackPlugin.options.config.description %>" />
-    <meta name="twitter:image" content="https://<%= htmlWebpackPlugin.options.config.domain %><%= require.context("./data/", true, /^\.\/.*\.jpg$/)('./screenshot.jpg') %>" />
+    <meta property="og:url" content="https://<%= htmlWebpackPlugin.options.config.domain %>">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="<%= htmlWebpackPlugin.options.config.name %>">
+    <meta property="og:image" content="https://<%= htmlWebpackPlugin.options.config.domain %><%= require.context("./data/", true, /^\.\/.*\.jpg$/)('./screenshot.jpg') %>">
+    <meta property="og:description" content="<%= htmlWebpackPlugin.options.config.description %>">
+    <meta property="og:site_name" content="<%= htmlWebpackPlugin.options.config.name %>">
+    <meta name="twitter:card" content="summary">
+    <% if (htmlWebpackPlugin.options.config.twitter) { %>
+    <meta name="twitter:creator" content="@<%= htmlWebpackPlugin.options.config.twitter %>">
+    <% } %>
+    <meta name="twitter:url" content="https://<%= htmlWebpackPlugin.options.config.domain %>">
+    <meta name="twitter:title" content="<%= htmlWebpackPlugin.options.config.name %>">
+    <meta name="twitter:description" content="<%= htmlWebpackPlugin.options.config.description %>">
+    <meta name="twitter:image" content="https://<%= htmlWebpackPlugin.options.config.domain %><%= require.context("./data/", true, /^\.\/.*\.jpg$/)('./screenshot.jpg') %>">
     <meta name="format-detection" content="telephone=no">
     <meta name="msapplication-tap-highlight" content="no">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no">
