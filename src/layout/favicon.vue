@@ -3,13 +3,10 @@ export default {
   name: 'Favicon',
   mounted() {
     const { $refs: { canvas } } = this;
-    const ctx = canvas.getContext('2d');
 
     // Initialize
     const size = 8;
     const scale = 2;
-    canvas.width = size * scale;
-    canvas.height = size * scale;
     const grid = [];
     for (let y = 0; y < size; y += 1) {
       for (let x = 0; x < size; x += 1) {
@@ -23,6 +20,9 @@ export default {
         }
       }
     }
+    canvas.width = size * scale;
+    canvas.height = size * scale;
+    const ctx = canvas.getContext('2d');
     const pixels = ctx.getImageData(0, 0, canvas.width, canvas.height);
     grid.forEach(({ x, y }) => {
       const r = 100 + Math.floor(Math.random() * 129);
@@ -90,7 +90,7 @@ export default {
 
       grid.forEach(({ x, y }) => {
         const sample = (
-          (y * size * scale * scale) + (x * scale)
+          (y * scale * size * scale) + (x * scale)
         ) * 4;
         const r = step(sample);
         const g = step(sample + 1);
@@ -104,7 +104,6 @@ export default {
             pixels.data[pixel] = r;
             pixels.data[pixel + 1] = g;
             pixels.data[pixel + 2] = b;
-            pixels.data[pixel + 3] = 0xFF;
           }
         }
       });
