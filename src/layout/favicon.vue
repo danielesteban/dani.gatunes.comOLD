@@ -8,6 +8,12 @@ export default {
     const size = 8;
     const scale = 2;
     const grid = [];
+    const pixel = [];
+    for (let y = 0; y < scale; y += 1) {
+      for (let x = 0; x < scale; x += 1) {
+        pixel.push({ x, y });
+      }
+    }
     for (let y = 0; y < size; y += 1) {
       for (let x = 0; x < size; x += 1) {
         if (
@@ -16,7 +22,12 @@ export default {
             + ((x - (size * 0.5) + 0.5) ** 2)
           ) < size * 0.5
         ) {
-          grid.push({ x, y });
+          grid.push(pixel.map(({ x: px, y: py }) => (
+            (
+              (((y * scale) + py) * (size * scale))
+              + ((x * scale) + px)
+            ) * 4
+          )));
         }
       }
     }
@@ -24,26 +35,22 @@ export default {
     canvas.height = size * scale;
     const ctx = canvas.getContext('2d');
     const pixels = ctx.getImageData(0, 0, canvas.width, canvas.height);
-    grid.forEach(({ x, y }) => {
+    grid.forEach((pixel) => {
       const r = 100 + Math.floor(Math.random() * 129);
       const g = 100 + Math.floor(Math.random() * 129);
       const b = 100 + Math.floor(Math.random() * 129);
-      for (let py = 0; py < scale; py += 1) {
-        for (let px = 0; px < scale; px += 1) {
-          const pixel = (
-            (((y * scale) + py) * (size * scale))
-            + ((x * scale) + px)
-          ) * 4;
-          pixels.data[pixel] = r;
-          pixels.data[pixel + 1] = g;
-          pixels.data[pixel + 2] = b;
-          pixels.data[pixel + 3] = 0xFF;
-        }
-      }
+      pixel.forEach((index) => {
+        pixels.data[index] = r;
+        pixels.data[index + 1] = g;
+        pixels.data[index + 2] = b;
+        pixels.data[index + 3] = 0xFF;
+      });
     });
+    ctx.putImageData(pixels, 0, 0);
     const tag = document.createElement('link');
     tag.rel = 'icon';
     tag.type = 'image/png';
+    tag.href = canvas.toDataURL('image/png');
     document.head.appendChild(tag);
 
     // Cache refs & memory
@@ -52,8 +59,6 @@ export default {
       ctx,
       grid,
       pixels,
-      size,
-      scale,
       tag,
     };
 
@@ -73,39 +78,27 @@ export default {
         ctx,
         grid,
         pixels,
-        size,
-        scale,
         tag,
       } = state;
 
-      const step = pixel => (
+      const step = sample => (
         Math.min(
           Math.max(
-            pixels.data[pixel] + Math.floor(Math.random() * 65) - 32,
+            pixels.data[sample] + Math.floor(Math.random() * 65) - 32,
             100
           ),
           228
         )
       );
-
-      grid.forEach(({ x, y }) => {
-        const sample = (
-          (y * scale * size * scale) + (x * scale)
-        ) * 4;
-        const r = step(sample);
-        const g = step(sample + 1);
-        const b = step(sample + 2);
-        for (let py = 0; py < scale; py += 1) {
-          for (let px = 0; px < scale; px += 1) {
-            const pixel = (
-              (((y * scale) + py) * (size * scale))
-              + ((x * scale) + px)
-            ) * 4;
-            pixels.data[pixel] = r;
-            pixels.data[pixel + 1] = g;
-            pixels.data[pixel + 2] = b;
-          }
-        }
+      grid.forEach((pixel) => {
+        const r = step(pixel[0]);
+        const g = step(pixel[0] + 1);
+        const b = step(pixel[0] + 2);
+        pixel.forEach((index) => {
+          pixels.data[index] = r;
+          pixels.data[index + 1] = g;
+          pixels.data[index + 2] = b;
+        });
       });
       ctx.putImageData(pixels, 0, 0);
       tag.href = canvas.toDataURL('image/png');
