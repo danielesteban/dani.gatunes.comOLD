@@ -9,7 +9,6 @@ uniform float pointerHalo;
 uniform vec2 pointerPosition;
 
 void main(void) {
-  gl_Position = transform * vec4(position, 0.0, 1.0);
   float vertexLight = light;
   float distance = sqrt(
     pow(pointerPosition.x - quad.x, 2.0)
@@ -19,5 +18,6 @@ void main(void) {
     float halo = ((pointerHalo - distance) / pointerHalo) * 0.25;
     vertexLight = clamp(vertexLight + (halo - (halo * 0.5)), 0.0, 1.0);
   }
+  gl_Position = transform * vec4(position, 0.0, 1.0);
   fragColor = vec4(vec3(vertexLight), 1.0);
 }
