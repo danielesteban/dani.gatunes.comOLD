@@ -19,6 +19,7 @@ export default {
     // Allocate memory
     const state = {
       GL,
+      canvas,
       albedo: GL.createBuffer(),
       position: GL.createBuffer(),
       indices: GL.createBuffer(),
@@ -47,7 +48,7 @@ export default {
     this.reset();
 
     // Start animation
-    setImmediate(this.animate);
+    setImmediate(() => this.animate(0));
 
     // Capture pointer
     window.addEventListener('mousemove', this.onPointerMove, false);
@@ -93,9 +94,10 @@ export default {
       pointer[1] = y * scale;
     },
     reset() {
-      const { $refs: { canvas }, state } = this;
+      const { state } = this;
       const {
         GL,
+        canvas,
         albedo,
         indices,
         position,

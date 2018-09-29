@@ -160,6 +160,7 @@ module.exports = {
       config: meta,
       csp: (
         `default-src 'self'${mode === 'production' ? ' https://www.google-analytics.com/' : " ws://localhost:8080 'unsafe-eval'"};`
+        + "img-src 'self' data:;"
         + `style-src 'self'${mode === 'production' ? '' : " 'unsafe-inline'"};`
       ),
       minify: { collapseWhitespace: true },

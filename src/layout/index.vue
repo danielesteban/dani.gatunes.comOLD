@@ -1,17 +1,24 @@
 <script>
 import Background from './background';
+import Favicon from './favicon';
 import Info from './info';
 import Projects from './projects';
 
 export default {
   name: 'Layout',
-  components: { Background, Info, Projects },
+  components: {
+    Background,
+    Favicon,
+    Info,
+    Projects,
+  },
 };
 </script>
 
 <template>
   <div>
     <Background />
+    <Favicon />
     <Info />
     <Projects />
   </div>
