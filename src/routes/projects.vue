@@ -25,7 +25,6 @@ export default {
 
 <style lang="scss" scoped>
   .projects {
-    position: relative;
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
