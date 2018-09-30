@@ -1,8 +1,7 @@
 const webpack = require('webpack');
 const autoprefixer = require('autoprefixer');
 const { BundleAnalyzerPlugin } = require('webpack-bundle-analyzer');
-const CnameWebpackPlugin = require('cname-webpack-plugin');
-const CopyWebpackPlugin = require('copy-webpack-plugin');
+const GHPagesSPAWebpackPlugin = require('ghpages-spa-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const RobotstxtPlugin = require('robotstxt-webpack-plugin').default;
@@ -176,17 +175,14 @@ module.exports = {
       new MiniCssExtractPlugin({
         filename: 'code/[name].[contenthash].css',
       }),
-      new CnameWebpackPlugin({
-        domain: meta.domain,
-      }),
-      new CopyWebpackPlugin([
-        path.join(srcPath, '404.html'),
-      ]),
       new RobotstxtPlugin({
         policy: [{
           userAgent: '*',
           allow: '/',
         }],
+      }),
+      new GHPagesSPAWebpackPlugin({
+        domain: meta.domain,
       }),
       new webpack.SourceMapDevToolPlugin({
         test: /\.js$/,
