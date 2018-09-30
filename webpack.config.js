@@ -27,10 +27,10 @@ module.exports = {
     publicPath: basename,
   },
   resolve: {
-    extensions: ['.js', '.vue', '.json'],
     alias: {
       data: dataPath,
     },
+    extensions: ['.js', '.vue', '.json'],
   },
   module: {
     rules: [
@@ -196,12 +196,12 @@ module.exports = {
       new webpack.SourceMapDevToolPlugin({
         test: /\.js$/,
         filename: 'code/[name].[contenthash].js.map',
-        exclude: /vendor/,
+        exclude: /(manifest|vendor)/,
       }),
       new webpack.SourceMapDevToolPlugin({
         test: /\.css$/,
         filename: 'code/[name].[contenthash].css.map',
-        exclude: /vendor/,
+        exclude: 'vendor',
       }),
       ...(process.env.npm_config_report ? ([
         new BundleAnalyzerPlugin(),
