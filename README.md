@@ -3,7 +3,7 @@
 
 > My personal website/portfolio.
 
-[![screenshot](src/data/screenshot.jpg)](https://dani.gatunes.com/)
+[![screenshot](data/screenshot.jpg)](https://dani.gatunes.com/)
 
 <div align="center">
   <!-- Build Status -->
