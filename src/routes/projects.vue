@@ -1,6 +1,6 @@
 <script>
 import { Projects } from 'data';
-import Project from './project';
+import Project from '../components/project';
 
 export default {
   name: 'Projects',
@@ -25,12 +25,10 @@ export default {
 
 <style lang="scss" scoped>
   .projects {
+    position: relative;
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
     padding: 1rem;
-    @media only screen and (min-width: 1024px) {
-      padding-bottom: 10rem;
-    }
   }
 </style>

@@ -18,7 +18,8 @@
     "noisejs": "^2.1.0",
     "octicons": "^8.1.0",
     "raf": "^3.4.0",
-    "vue": "^2.5.17"
+    "vue": "^2.5.17",
+    "vue-router": "^3.0.1"
   },
   "devDependencies": {
     "@babel/core": "^7.1.2",

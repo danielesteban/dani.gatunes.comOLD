@@ -1,6 +1,7 @@
 import Vue from 'vue';
 import { Meta } from 'data';
 import Layout from './components/layout';
+import router from './routes';
 
 Vue.config.performance = !__PRODUCTION__;
 Vue.config.productionTip = false;
@@ -10,6 +11,7 @@ const app = new Vue({
   el: '#mount',
   components: { Layout },
   render: h => h('Layout'),
+  router,
 });
 
 if (__PRODUCTION__ && Meta.analytics) {

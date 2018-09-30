@@ -155,6 +155,7 @@ module.exports = {
       'process.env': {
         NODE_ENV: JSON.stringify(mode),
       },
+      __BASENAME__: JSON.stringify(basename),
       __PRODUCTION__: JSON.stringify(mode === 'production'),
     }),
     new HtmlWebpackPlugin({

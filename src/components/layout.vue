@@ -2,7 +2,6 @@
 import Background from './background';
 import Favicon from './favicon';
 import Info from './info';
-import Projects from './projects';
 
 export default {
   name: 'Layout',
@@ -10,7 +9,6 @@ export default {
     Background,
     Favicon,
     Info,
-    Projects,
   },
 };
 </script>
@@ -20,7 +18,7 @@ export default {
     <Background />
     <Favicon />
     <Info />
-    <Projects />
+    <router-view />
   </div>
 </template>
 
@@ -46,6 +44,9 @@ export default {
     @media only screen and (min-width: 512px) {
       font-size: 0.75rem;
       line-height: 1.75rem;
+    }
+    @media only screen and (min-width: 1024px) {
+      padding-bottom: 9rem;
     }
   }
 
