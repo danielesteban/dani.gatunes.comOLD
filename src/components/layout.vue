@@ -28,6 +28,10 @@ export default {
     src: url(../fonts/printchar21.ttf);
   }
 
+  *, *:after, *:before {
+    box-sizing: border-box;
+  }
+
   body {
     margin: 0;
     background: #141414;
@@ -50,7 +54,16 @@ export default {
     }
   }
 
-  *, *:after, *:before {
-    box-sizing: border-box;
+  ::-webkit-scrollbar {
+    width: 1rem;
+  }
+  ::-webkit-scrollbar-track {
+    background: rgba(0, 0, 0, .25);
+  }
+  ::-webkit-scrollbar-thumb {
+    background: rgba(72, 155, 43, .25);
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    background: rgba(72, 155, 43, .5);
   }
 </style>
