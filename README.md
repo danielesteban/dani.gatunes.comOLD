@@ -27,10 +27,10 @@ Lately I've been doing a bunch of Vue.js work and I'm starting to love how light
 As a testament to that sentiment, I wanted to refactor my personal site into Vue in 1 Day. In the process, I ended up making it fully data-driven and it's finally super easy to add/edit projects or even fork a new portfolio for something/someone else.
 
 #### Where's the data?
- * Edit metadata in: [src/data/meta.json](src/data/meta.json)
- * Edit projects in: [src/data/projects.json](src/data/projects.json)
- * Copy project snapshots into: [src/data/snapshots/](src/data/snapshots/)
- * Copy CV into: [src/data/cv.pdf](src/data/cv.pdf)
+ * Edit metadata in: [data/meta.json](data/meta.json)
+ * Edit projects in: [data/projects.json](data/projects.json)
+ * Copy project snapshots into: [data/snapshots/](data/snapshots/)
+ * Copy CV into: [data/cv.pdf](data/cv.pdf)
 
 #### How do I start the dev environment?
 

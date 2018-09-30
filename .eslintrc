@@ -16,7 +16,10 @@
   },
   "settings": {
     "import/resolver": {
-      "node": {
+      "alias": {
+        map: [
+          ['data', './data']
+        ],
         "extensions": [
           ".js", ".vue", ".json"
         ]

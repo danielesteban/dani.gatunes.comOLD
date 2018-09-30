@@ -1,6 +1,6 @@
 <script>
-import CV from '../data/cv.pdf';
-import Meta from '../data/meta';
+import CV from 'data/cv.pdf';
+import Meta from 'data/meta';
 import Octicon from './octicon';
 
 export default {

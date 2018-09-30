@@ -1,6 +1,6 @@
 import Vue from 'vue';
+import Meta from 'data/meta';
 import Layout from './components/layout';
-import Meta from './data/meta';
 
 Vue.config.performance = !__PRODUCTION__;
 Vue.config.productionTip = false;

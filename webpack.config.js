@@ -9,10 +9,11 @@ const RobotstxtPlugin = require('robotstxt-webpack-plugin').default;
 const UglifyJSPlugin = require('uglifyjs-webpack-plugin');
 const VueLoaderPlugin = require('vue-loader/lib/plugin');
 const path = require('path');
-const meta = require('./src/data/meta');
+const meta = require('./data/meta');
 
 const buildPath = path.resolve(__dirname, 'dist');
 const modulesPath = path.resolve(__dirname, 'node_modules');
+const dataPath = path.resolve(__dirname, 'data');
 const srcPath = path.resolve(__dirname, 'src');
 const mode = process.env.NODE_ENV === 'production' ? 'production' : 'development';
 const basename = process.env.BASENAME || '/';
@@ -27,6 +28,9 @@ module.exports = {
   },
   resolve: {
     extensions: ['.js', '.vue', '.json'],
+    alias: {
+      data: dataPath,
+    },
   },
   module: {
     rules: [
@@ -117,6 +121,8 @@ module.exports = {
             },
           },
         ],
+        include: [dataPath, srcPath],
+        exclude: modulesPath,
       },
     ],
   },
