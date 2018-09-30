@@ -1,5 +1,5 @@
 import Vue from 'vue';
-import Meta from 'data/meta';
+import { Meta } from 'data';
 import Layout from './components/layout';
 
 Vue.config.performance = !__PRODUCTION__;

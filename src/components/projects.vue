@@ -1,5 +1,5 @@
 <script>
-import Projects from 'data/projects';
+import { Projects } from 'data';
 import Project from './project';
 
 export default {
