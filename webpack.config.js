@@ -84,21 +84,21 @@ module.exports = {
             loader: 'css-loader',
             options: {
               importLoaders: 2,
-              sourceMap: mode !== 'production',
+              sourceMap: true,
             },
           },
           {
             loader: 'postcss-loader',
             options: {
               plugins: () => [autoprefixer({ browsers: ['last 2 versions'] })],
-              sourceMap: mode !== 'production',
+              sourceMap: true,
             },
           },
           {
             loader: 'sass-loader',
             options: {
               outputStyle: 'compressed',
-              sourceMap: mode !== 'production',
+              sourceMap: true,
             },
           },
         ],
@@ -196,10 +196,12 @@ module.exports = {
       new webpack.SourceMapDevToolPlugin({
         test: /\.js$/,
         filename: 'code/[name].[contenthash].js.map',
+        exclude: /vendor/,
       }),
       new webpack.SourceMapDevToolPlugin({
         test: /\.css$/,
         filename: 'code/[name].[contenthash].css.map',
+        exclude: /vendor/,
       }),
       ...(process.env.npm_config_report ? ([
         new BundleAnalyzerPlugin(),
