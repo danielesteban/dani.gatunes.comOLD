@@ -56,7 +56,6 @@ module.exports = {
           {
             loader: 'babel-loader',
             options: {
-              compact: true,
               presets: [
                 ['@babel/preset-env', { modules: false }],
               ],
