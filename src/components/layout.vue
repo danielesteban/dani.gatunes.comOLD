@@ -17,10 +17,32 @@ export default {
   <div>
     <Background />
     <Favicon />
-    <Info />
-    <router-view />
+    <div class="layout">
+      <Info />
+      <div class="content">
+        <router-view />
+      </div>
+    </div>
   </div>
 </template>
+
+<style lang="scss" scoped>
+  .layout {
+    position: relative;
+    height: 100vh;
+    @media only screen and (min-width: 1024px) {
+      display: flex;
+      flex-direction: column-reverse;
+    }
+  }
+  .content {
+    display: flex;
+    flex-grow: 1;
+    justify-content: center;
+    overflow-y: auto;
+    padding: 1rem;
+  }
+</style>
 
 <style lang="scss">
   @font-face {
@@ -49,16 +71,13 @@ export default {
       font-size: 0.75rem;
       line-height: 1.75rem;
     }
-    @media only screen and (min-width: 1024px) {
-      padding-bottom: 9rem;
-    }
   }
 
   ::-webkit-scrollbar {
     width: 1rem;
   }
   ::-webkit-scrollbar-track {
-    background: rgba(#141414, .25);
+    background: rgba(#141414, .75);
   }
   ::-webkit-scrollbar-thumb {
     background: rgba(72, 155, 43, .25);

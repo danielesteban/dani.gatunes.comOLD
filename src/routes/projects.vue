@@ -28,6 +28,7 @@ export default {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-    padding: 1rem;
+    width: 100%;
+    padding-top: 1rem;
   }
 </style>

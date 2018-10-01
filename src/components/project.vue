@@ -67,7 +67,7 @@ export default {
 
 <style lang="scss" scoped>
   .project {
-    padding: 1rem;
+    padding: 0 1rem 2rem;
     width: 100%;
     height: 460px;
     &, .wrapper {

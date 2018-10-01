@@ -100,10 +100,6 @@ export default {
       }
     }
     @media only screen and (min-width: 1024px) {
-      position: fixed;
-      bottom: 0;
-      width: 100%;
-      background: linear-gradient(rgba($background, .9), darken($background, 20%));
       border-top: 1px solid darken($background, 15%);
       border-bottom: 0;
       text-align: center;
