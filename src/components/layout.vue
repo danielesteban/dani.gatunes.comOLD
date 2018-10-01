@@ -77,7 +77,7 @@ export default {
     width: 1rem;
   }
   ::-webkit-scrollbar-track {
-    background: rgba(#141414, .75);
+    background: rgba(#000, .5);
   }
   ::-webkit-scrollbar-thumb {
     background: rgba(72, 155, 43, .25);
