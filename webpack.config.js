@@ -161,7 +161,7 @@ module.exports = {
     new HtmlWebpackPlugin({
       config: meta,
       csp: (
-        "default-src 'self'"
+        "default-src 'self' https://firestore.googleapis.com/"
         + `${mode === 'production' && meta.analytics ? ' https://www.google-analytics.com/' : ''}`
         + `${mode === 'development' ? " ws://localhost:8080 'unsafe-eval'" : ''};`
         + "img-src 'self' data:;"

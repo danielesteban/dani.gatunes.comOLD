@@ -1,5 +1,6 @@
 import Vue from 'vue';
 import VueRouter from 'vue-router';
+import Chat from './chat';
 import Projects from './projects';
 import NotFound from './notfound';
 
@@ -12,6 +13,11 @@ export default new VueRouter({
       component: Projects,
       name: 'projects',
       path: '/',
+    },
+    {
+      component: Chat,
+      name: 'chat',
+      path: '/%CF%80',
     },
     {
       component: NotFound,
