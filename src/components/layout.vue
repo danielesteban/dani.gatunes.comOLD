@@ -10,6 +10,30 @@ export default {
     Favicon,
     Info,
   },
+  mounted() {
+    window.addEventListener('keyup', this.konami, false);
+  },
+  beforeDestroy() {
+    window.removeEventListener('keyup', this.konami);
+  },
+  methods: {
+    konami({ keyCode }) {
+      // Typing the konami code will redirect you
+      // to the public chat easter egg.
+      if (this.$route.name === 'chat') return;
+      const code = [38, 38, 40, 40, 37, 39, 37, 39, 66, 65];
+      const step = this.step || 0;
+      if (code[step] !== keyCode) {
+        this.step = 0;
+        return;
+      }
+      this.step = step + 1;
+      if (this.step === code.length) {
+        this.$router.push({ name: 'chat' });
+        this.step = 0;
+      }
+    },
+  },
 };
 </script>
 
