@@ -114,6 +114,7 @@ export default {
     flex-direction: column;
     align-self: stretch;
     width: 100%;
+    max-width: 1200px;
     margin: 1rem;
     padding: 1rem;
     background: rgba(0, 0, 0, .5);
