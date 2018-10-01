@@ -9,7 +9,6 @@ export default {
 
 <template>
   <div class="notfound">
-
     <Octicon
       name="stop"
       :scale="10"
