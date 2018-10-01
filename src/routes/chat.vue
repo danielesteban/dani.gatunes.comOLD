@@ -16,8 +16,56 @@ const { firestore: { FieldValue } } = firebase;
 const db = firebase.firestore();
 db.settings({ timestampsInSnapshots: true });
 
+const DecoderEffect = {
+  props: { text: { type: String, required: true } },
+  data() {
+    const payload = this.text.split('');
+    return {
+      decoded: payload.map(this.getRandomChar).join(''),
+      payload,
+      steps: payload.map(() => (
+        8 + Math.floor(Math.random() * 9)
+      )),
+    };
+  },
+  render(createElement) {
+    return createElement('span', this.decoded);
+  },
+  mounted() {
+    setImmediate(this.animate);
+  },
+  beforeDestroy() {
+    clearTimeout(this.timeout);
+  },
+  methods: {
+    animate() {
+      let stillDecoding = false;
+      this.decoded = this.payload.map((chr, i) => {
+        if (this.steps[i]) {
+          this.steps[i] -= 1;
+          if (this.steps[i] > 0) {
+            stillDecoding = true;
+            return this.getRandomChar();
+          }
+        }
+        return chr;
+      }).join('');
+      if (stillDecoding) {
+        this.timeout = setTimeout(
+          this.animate,
+          50 + Math.floor(Math.random() * 51)
+        );
+      }
+    },
+    getRandomChar() {
+      return String.fromCharCode(33 + Math.floor(Math.random() * 94));
+    },
+  },
+};
+
 export default {
   name: 'Chat',
+  components: { DecoderEffect },
   filters: {
     timestamp(time) {
       const date = new Date(time);
@@ -95,8 +143,12 @@ export default {
         :key="message.id"
         class="message"
       >
-        <div class="text">{{ message.text }}</div>
-        <div class="time">{{ message.time | timestamp }}</div>
+        <div class="text">
+          <DecoderEffect :text="message.text" />
+        </div>
+        <div class="time">
+          {{ message.time | timestamp }}
+        </div>
       </div>
     </div>
     <div class="input">
