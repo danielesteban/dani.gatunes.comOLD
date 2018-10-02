@@ -37,6 +37,10 @@ As a testament to that sentiment, I wanted to refactor my personal site into Vue
  * yarn install
  * yarn start
 
+###### Note for MS Windows users:
+
+> Your must have the "Create symbolic links" permission active in your user's Group Policy or the shared-git-hooks module install will fail. You can learn how to fix that: [Here](https://superuser.com/a/105381).
+
 #### Can I analyze the production bundle?
 
 * yarn build:report
@@ -53,12 +57,3 @@ As a testament to that sentiment, I wanted to refactor my personal site into Vue
  * Replace the secure env in [.travis.yml](.travis.yml) with the output from travis-cli.
  * Log into [https://travis-ci.org](https://travis-ci.org) and enable your repo.
  * It will build and deploy the bundle to github pages every time you push to master.
-
-#### What if I want to deploy it on my own server?
-
- * yarn build
- * yarn docker:up
-
-###### Note for MS Windows users:
-
-> Your must have the "Create symbolic links" permission active in your user's Group Policy or the shared-git-hooks module install will fail. You can learn how to fix that: [Here](https://superuser.com/a/105381).

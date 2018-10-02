@@ -8,8 +8,6 @@
     "build:report": "npm run build --report",
     "deploy": "npm run lint && npm run build && gh-pages -d dist",
     "deploy:travis": "gh-pages -d dist -u \"Travis CI <travis@travis-ci.org>\"",
-    "docker:up": "docker-compose up -d --build",
-    "docker:down": "docker-compose down",
     "lint": "eslint --cache --ext .js,.vue src",
     "lint:fix": "eslint --cache --fix --ext .js,.vue src"
   },
