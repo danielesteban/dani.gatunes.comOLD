@@ -164,21 +164,24 @@ export default {
   .chat {
     display: flex;
     flex-direction: column;
-    align-self: stretch;
     width: 100%;
     max-width: 1200px;
+    height: calc(100vh - 4rem);
     margin: 1rem;
     padding: 1rem;
     background: rgba(0, 0, 0, .5);
     border: 2px solid #141414;
     box-shadow: 0 3px 10px rgba(0,0,0,.156863), 0 3px 10px rgba(0,0,0,.227451);
+    @media only screen and (min-width: 1024px) {
+      height: auto;
+    }
   }
   .messages {
     position: relative;
     background: rgba(#000, .2);
     flex-grow: 1;
     overflow-y: auto;
-    padding: 1rem 0.5rem 1rem 1rem;
+    padding: 1rem;
   }
   .message {
     display: flex;
@@ -186,12 +189,16 @@ export default {
   }
   .text {
     flex-grow: 1;
-    padding-right: 0.5rem;
   }
   .time {
     color: #999;
     font-size: 0.75em;
-    margin-right: 0.5rem;
+    padding-left: 0.5rem;
+    display: none;
+    white-space: nowrap;
+    @media only screen and (min-width: 512px) {
+      display: block;
+    }
   }
   .input {
     position: relative;
