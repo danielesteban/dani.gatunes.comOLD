@@ -56,11 +56,11 @@
     "url": "projects.gatunes.com/cfc"
   },
   {
-    "id": "voxels",
-    "title": "Voxels.es",
-    "tags": ["WebGL", "WebSockets", "Express", "MongoDB"],
-    "info": "Multiplayer voxel editor À-la-Minecraft. With a custom engine built from the ground up, the client achieves 60FPS with great rendering distances. The backend syncronizes up the client states via websockets and persists the chunk updates to a MongoDB instance.",
-    "url": "voxels.es"
+    "id": "sandbox",
+    "title": "Physics sandbox",
+    "tags": ["ES6", "WebGL", "GLSL", "Ammo.js"],
+    "info": "A sandbox level that demonstrates the physics capabilities of my custom webgl engine, like: Constraints, collision callbacks, entity grabbing/dropping, buttons, elevators... All of course at 60FPS.",
+    "url": "projects.gatunes.com/sandbox"
   },
   {
     "id": "isometric",
@@ -77,11 +77,11 @@
     "url": "projects.gatunes.com/videochat"
   },
   {
-    "id": "sandbox",
-    "title": "Physics sandbox",
-    "tags": ["ES6", "WebGL", "GLSL", "Ammo.js"],
-    "info": "A sandbox level that demonstrates the physics capabilities of my custom webgl engine, like: Constraints, collision callbacks, entity grabbing/dropping, buttons, elevators... All of course at 60FPS.",
-    "url": "projects.gatunes.com/sandbox"
+    "id": "voxels",
+    "title": "Voxels.es",
+    "tags": ["WebGL", "WebSockets", "Express", "MongoDB"],
+    "info": "Multiplayer voxel editor À-la-Minecraft. With a custom engine built from the ground up, the client achieves 60FPS with great rendering distances. The backend syncronizes up the client states via websockets and persists the chunk updates to a MongoDB instance.",
+    "url": "voxels.es"
   },
   {
     "id": "procedural",
