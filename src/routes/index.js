@@ -17,7 +17,7 @@ export default new VueRouter({
     {
       component: Chat,
       name: 'chat',
-      path: '/%CF%80',
+      path: '/π',
     },
     {
       component: NotFound,

@@ -14,7 +14,6 @@ firebase.initializeApp({
 
 const { firestore: { FieldValue } } = firebase;
 const db = firebase.firestore();
-db.settings({ timestampsInSnapshots: true });
 
 const DecoderEffect = {
   props: { text: { type: String, required: true } },

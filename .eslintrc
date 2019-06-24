@@ -7,19 +7,19 @@
     "plugin:vue/recommended"
   ],
   "globals": {
-    "__BASENAME__": "",
-    "__PRODUCTION__": false,
+    "__BASENAME__": true,
+    "__PRODUCTION__": false
   },
   "parserOptions": {
-    parser: 'babel-eslint',
-    ecmaVersion: 2018,
-    sourceType: 'module',
+    "parser": "babel-eslint",
+    "ecmaVersion": 2018,
+    "sourceType": "module"
   },
   "settings": {
     "import/resolver": {
       "alias": {
-        map: [
-          ['data', './data']
+        "map": [
+          ["data", "./data"]
         ],
         "extensions": [
           ".js", ".vue", ".json"

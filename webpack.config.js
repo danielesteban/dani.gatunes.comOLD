@@ -4,8 +4,8 @@ const { BundleAnalyzerPlugin } = require('webpack-bundle-analyzer');
 const GHPagesSPAWebpackPlugin = require('ghpages-spa-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
-const RobotstxtPlugin = require('robotstxt-webpack-plugin').default;
-const UglifyJSPlugin = require('uglifyjs-webpack-plugin');
+const RobotstxtPlugin = require('robotstxt-webpack-plugin');
+const TerserPlugin = require('terser-webpack-plugin');
 const VueLoaderPlugin = require('vue-loader/lib/plugin');
 const path = require('path');
 const meta = require('./data/meta');
@@ -77,7 +77,7 @@ module.exports = {
           {
             loader: 'postcss-loader',
             options: {
-              plugins: () => [autoprefixer({ browsers: ['last 2 versions'] })],
+              plugins: () => [autoprefixer()],
               sourceMap: true,
             },
           },
@@ -117,13 +117,13 @@ module.exports = {
   devServer: { hot: true },
   optimization: {
     minimizer: [
-      new UglifyJSPlugin({
+      new TerserPlugin({
         cache: true,
         parallel: true,
         sourceMap: true,
-        uglifyOptions: {
+        terserOptions: {
           compress: {
-            drop_console: true,
+            pure_funcs: ['console.log'],
           },
         },
       }),
