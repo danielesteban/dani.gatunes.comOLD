@@ -1,5 +1,19 @@
 [
   {
+    "id": "bigbrotha",
+    "title": "bigbrotha",
+    "tags": ["ThreeJS", "TensorflowJS"],
+    "info": "big brotha is watching.",
+    "url": "bigbrotha.gatunes.com"
+  },
+  {
+    "id": "realmsvr",
+    "title": "Realms",
+    "tags": ["WebVR", "ThreeJS", "WebWorkers"],
+    "info": "A recursive experience in VR.",
+    "url": "realmsvr.gatunes.com"
+  },
+  {
     "id": "vrblocks",
     "title": "VRBlocks",
     "tags": ["WebVR", "WebSockets", "WebWorkers"],
