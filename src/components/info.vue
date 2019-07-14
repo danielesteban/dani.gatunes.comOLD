@@ -22,14 +22,16 @@ export default {
     <h5>{{ Meta.description }}</h5>
     <div class="resources">
       <a
-        :href="CV"
-        :download="`${Meta.name} - CV.pdf`"
+        v-if="Meta.twitter"
+        :href="`https://twitter.com/${Meta.twitter}`"
+        rel="noopener noreferrer"
+        target="_blank"
       >
         <Octicon
           :scale="1.5"
-          name="file-pdf"
+          name="comment-discussion"
         />
-        <span>CV</span>
+        <span>@{{ Meta.twitter }}</span>
       </a>
       <a
         v-if="Meta.github"
@@ -44,16 +46,14 @@ export default {
         <span>Github</span>
       </a>
       <a
-        v-if="Meta.twitter"
-        :href="`https://twitter.com/${Meta.twitter}`"
-        rel="noopener noreferrer"
-        target="_blank"
+        :href="CV"
+        :download="`${Meta.name} - CV.pdf`"
       >
         <Octicon
           :scale="1.5"
-          name="comment-discussion"
+          name="file-pdf"
         />
-        <span>@{{ Meta.twitter }}</span>
+        <span>CV</span>
       </a>
       <a
         v-if="Meta.email"
