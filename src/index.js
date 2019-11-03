@@ -10,7 +10,7 @@ Vue.config.productionTip = false;
 const app = new Vue({
   el: '#mount',
   components: { Layout },
-  render: h => h('Layout'),
+  render: (h) => h('Layout'),
   router,
 });
 

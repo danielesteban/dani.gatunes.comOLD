@@ -146,7 +146,7 @@ export default {
             quads.push(x, canvas.height - y);
           });
           // eslint-disable-next-line no-loop-func
-          quadIndices.forEach(i => index.push(offset + i));
+          quadIndices.forEach((i) => index.push(offset + i));
           grid.push(vec2.fromValues(x, y));
         }
       }

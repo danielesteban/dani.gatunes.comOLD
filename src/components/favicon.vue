@@ -81,7 +81,7 @@ export default {
         tag,
       } = state;
 
-      const step = sample => (
+      const step = (sample) => (
         Math.min(
           Math.max(
             pixels.data[sample] + Math.floor(Math.random() * 65) - 32,

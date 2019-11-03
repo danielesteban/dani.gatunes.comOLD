@@ -105,7 +105,7 @@ export default {
       const { scroll } = this.$refs;
       const shouldScroll = scroll.scrollHeight - scroll.scrollTop === scroll.clientHeight;
       snapshot.docChanges()
-        .filter(change => (change.type === 'added'))
+        .filter((change) => (change.type === 'added'))
         .reverse()
         .forEach(({ doc }) => {
           const data = doc.data();

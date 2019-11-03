@@ -7,8 +7,8 @@
     "plugin:vue/recommended"
   ],
   "globals": {
-    "__BASENAME__": true,
-    "__PRODUCTION__": false
+    "__BASENAME__": "readonly",
+    "__PRODUCTION__": "readonly"
   },
   "parserOptions": {
     "parser": "babel-eslint",

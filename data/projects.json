@@ -99,10 +99,10 @@
   },
   {
     "id": "voxels",
-    "title": "Voxels.es",
+    "title": "Voxels",
     "tags": ["WebGL", "WebSockets", "Express", "MongoDB"],
     "info": "Multiplayer voxel editor À-la-Minecraft. With a custom engine built from the ground up, the client achieves 60FPS with great rendering distances. The backend syncronizes up the client states via websockets and persists the chunk updates to a MongoDB instance.",
-    "url": "voxels.es"
+    "url": "voxels.gatunes.com"
   },
   {
     "id": "procedural",
