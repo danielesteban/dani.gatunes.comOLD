@@ -1,29 +1,51 @@
 [
   {
-    "id": "bigbrotha",
-    "title": "bigbrotha",
-    "tags": ["ThreeJS", "TensorflowJS"],
-    "info": "big brotha is watching.",
-    "url": "bigbrotha.gatunes.com"
+    "id": "vrconcert",
+    "title": "VRConcert",
+    "tags": ["WebXR", "ThreeJS", "GLSL"],
+    "info": "A tool to create VR music concerts/videos.",
+    "url": "glitch.com/~vrconcert"
+  },
+  {
+    "id": "sambaportals",
+    "title": "sambaportals",
+    "tags": ["WebGL", "ThreeJS", "GLSL"],
+    "info": "WebGL portals experiment.",
+    "url": "glitch.com/~sambaportals"
   },
   {
     "id": "vaporcity",
     "title": "vaporcity",
-    "tags": ["WebGL", "GLSL", "ThreeJS"],
+    "tags": ["WebGL", "ThreeJS", "GLSL"],
     "info": "4 draw-call city.",
     "url": "glitch.com/~vaporcity"
   },
   {
+    "id": "facewarp",
+    "title": "facewarp",
+    "tags": ["WebGL", "ThreeJS", "GLSL"],
+    "info": "Single draw call shenanigans.",
+    "url": "glitch.com/~facewarp"
+  },
+  {
+    "id": "bigbrotha",
+    "title": "bigbrotha",
+    "tags": ["WebGL", "ThreeJS", "TensorflowJS"],
+    "info": "Big brotha is watching.",
+    "url": "bigbrotha.gatunes.com"
+  },
+  
+  {
     "id": "realmsvr",
     "title": "Realms",
-    "tags": ["WebVR", "ThreeJS", "WebWorkers"],
+    "tags": ["WebXR", "ThreeJS", "WebWorkers"],
     "info": "A recursive experience in VR.",
     "url": "realmsvr.gatunes.com"
   },
   {
     "id": "vrblocks",
     "title": "VRBlocks",
-    "tags": ["WebVR", "WebSockets", "WebWorkers"],
+    "tags": ["WebXR", "WebSockets", "WebWorkers"],
     "info": "An online multiplayer sandbox in VR. Supports up to 32 concurrent players. The chunks are meshed in parallel in webworkers. The peer's head+hands matrices and chunk updates get synchronized across clients through a custom binary protocol on top of websockets.",
     "url": "vrblocks.gatunes.com"
   },
@@ -37,7 +59,7 @@
   {
     "id": "vrbeats",
     "title": "VRBeats",
-    "tags": ["WebVR", "ThreeJS", "WebAudio"],
+    "tags": ["WebXR", "ThreeJS", "WebAudio"],
     "info": "A live performance sandbox in VR. It features three sequencers (2 synths, 1 sampler) with multiple pages and a channel mixer.",
     "url": "vrbeats.gatunes.com"
   },
