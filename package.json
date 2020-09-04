@@ -46,7 +46,7 @@
     "ghpages-spa-webpack-plugin": "^1.0.0",
     "html-webpack-plugin": "^3.2.0",
     "mini-css-extract-plugin": "^0.9.0",
-    "node-sass": "^4.13.0",
+    "node-sass": "^4.13.1",
     "postcss-loader": "^3.0.0",
     "pre-commit": "^1.2.2",
     "raw-loader": "^4.0.0",
