@@ -1,5 +1,5 @@
 <script>
-import Octicon from './octicon';
+import Octicon from './octicon.vue';
 
 export default {
   name: 'Project',

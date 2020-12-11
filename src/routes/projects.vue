@@ -1,6 +1,6 @@
 <script>
 import { Projects } from 'data';
-import Project from '../components/project';
+import Project from '../components/project.vue';
 
 export default {
   name: 'Projects',

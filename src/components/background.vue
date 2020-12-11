@@ -50,7 +50,7 @@ export default {
     this.reset();
 
     // Start animation
-    setImmediate(() => this.animate(0));
+    setTimeout(() => this.animate(0), 0);
 
     // Capture pointer
     window.addEventListener('mousemove', this.onPointerMove, false);

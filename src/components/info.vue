@@ -1,6 +1,6 @@
 <script>
 import { CV, Meta } from 'data';
-import Octicon from './octicon';
+import Octicon from './octicon.vue';
 
 export default {
   name: 'Info',
@@ -51,7 +51,7 @@ export default {
       >
         <Octicon
           :scale="1.5"
-          name="file-pdf"
+          name="file"
         />
         <span>CV</span>
       </a>

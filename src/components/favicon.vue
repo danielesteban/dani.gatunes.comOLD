@@ -63,7 +63,7 @@ export default {
     };
 
     // Start animation
-    setImmediate(this.animate);
+    setTimeout(this.animate, 0);
   },
   beforeDestroy() {
     const { state } = this;

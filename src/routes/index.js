@@ -1,8 +1,8 @@
 import Vue from 'vue';
 import VueRouter from 'vue-router';
-import Chat from './chat';
-import Projects from './projects';
-import NotFound from './notfound';
+import Chat from './chat.vue';
+import Projects from './projects.vue';
+import NotFound from './notfound.vue';
 
 Vue.use(VueRouter);
 

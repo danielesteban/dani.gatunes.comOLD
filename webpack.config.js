@@ -1,6 +1,7 @@
 const webpack = require('webpack');
 const autoprefixer = require('autoprefixer');
 const { BundleAnalyzerPlugin } = require('webpack-bundle-analyzer');
+const ESLintPlugin = require('eslint-webpack-plugin');
 const GHPagesSPAWebpackPlugin = require('ghpages-spa-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
@@ -33,15 +34,6 @@ module.exports = {
   },
   module: {
     rules: [
-      ...(mode === 'development' ? [
-        {
-          test: /\.(js|vue)$/,
-          enforce: 'pre',
-          loader: 'eslint-loader',
-          include: srcPath,
-          exclude: modulesPath,
-        },
-      ] : []),
       {
         test: /\.js$/,
         use: [
@@ -66,26 +58,23 @@ module.exports = {
       {
         test: /\.scss$/,
         use: [
-          mode === 'production' ? MiniCssExtractPlugin.loader : 'vue-style-loader',
+          mode === 'production' ? MiniCssExtractPlugin.loader : 'style-loader',
           {
             loader: 'css-loader',
             options: {
               importLoaders: 2,
-              sourceMap: true,
             },
           },
           {
             loader: 'postcss-loader',
             options: {
-              plugins: () => [autoprefixer()],
-              sourceMap: true,
+              postcssOptions: {
+                plugins: ['autoprefixer'],
+              },
             },
           },
           {
             loader: 'sass-loader',
-            options: {
-              sourceMap: true,
-            },
           },
         ],
         include: srcPath,
@@ -113,13 +102,11 @@ module.exports = {
     ],
   },
   devtool: false,
-  devServer: { hot: true },
+  devServer: { hot: true, publicPath: basename },
   optimization: {
     minimizer: [
       new TerserPlugin({
-        cache: true,
         parallel: true,
-        sourceMap: true,
         terserOptions: {
           compress: {
             pure_funcs: ['console.log'],
@@ -164,7 +151,6 @@ module.exports = {
     }),
     new VueLoaderPlugin(),
     ...(mode === 'production' ? [
-      new webpack.HashedModuleIdsPlugin(),
       new MiniCssExtractPlugin({
         filename: 'code/[name].[contenthash].css',
       }),
@@ -177,23 +163,12 @@ module.exports = {
       new GHPagesSPAWebpackPlugin({
         domain: meta.domain,
       }),
-      new webpack.SourceMapDevToolPlugin({
-        test: /\.js$/,
-        filename: 'code/[name].[contenthash].js.map',
-        exclude: /(manifest|vendor)/,
-      }),
-      new webpack.SourceMapDevToolPlugin({
-        test: /\.css$/,
-        filename: 'code/[name].[contenthash].css.map',
-        exclude: 'vendor',
-      }),
       ...(process.env.npm_config_report ? ([
         new BundleAnalyzerPlugin(),
       ]) : []),
     ] : [
-      new webpack.NamedModulesPlugin(),
       new webpack.HotModuleReplacementPlugin(),
-      new webpack.EvalSourceMapDevToolPlugin(),
+      new ESLintPlugin(),
     ]),
   ],
 };

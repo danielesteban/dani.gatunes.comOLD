@@ -15,7 +15,7 @@ export default {
   },
   computed: {
     options() {
-      const { options } = octicons[this.name];
+      const { options } = octicons[this.name].heights['16'];
       return {
         ...options,
         class: undefined,
@@ -24,7 +24,7 @@ export default {
       };
     },
     path() {
-      return octicons[this.name].path;
+      return octicons[this.name].heights['16'].path;
     },
   },
 };

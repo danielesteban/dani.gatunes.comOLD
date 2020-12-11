@@ -31,7 +31,7 @@ const DecoderEffect = {
     return createElement('span', this.decoded);
   },
   mounted() {
-    setImmediate(this.animate);
+    setTimeout(this.animate, 0);
   },
   beforeDestroy() {
     clearTimeout(this.timeout);
@@ -116,9 +116,9 @@ export default {
           });
         });
       if (shouldScroll) {
-        setImmediate(() => {
+        setTimeout(() => {
           scroll.scrollTop = scroll.scrollHeight - scroll.clientHeight;
-        });
+        }, 0);
       }
     },
     sendMessage(text) {

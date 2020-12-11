@@ -1,7 +1,7 @@
 <script>
-import Background from './background';
-import Favicon from './favicon';
-import Info from './info';
+import Background from './background.vue';
+import Favicon from './favicon.vue';
+import Info from './info.vue';
 
 export default {
   name: 'Layout',
